@@ -1,0 +1,50 @@
+Parkour
+Flight
+Necromancy
+Companions
+Automation
+Multiple Protagonists
+Reincarnation
+Slow-Mo
+Time Acceleration
+Time Rewind
+Security Cameras
+Cooking
+Area Control
+Size Manipulation
+Health-as-Currency
+Portals
+Time Loop
+Fog of War
+The player is the villain
+The Player is a Side Character
+Explosive Barrels
+Ghost Mode after Death
+Farming
+In-Game Programming
+Luck Stat
+NPC Bonding
+Sanity Meter
+Controlled Griefing
+Life Steal
+Enemy Splitting
+Uninterrupted Control
+Narrator
+Day/Night Cycle
+Asymmetric PvP
+Horizontal Progression
+Attention Checks
+Realistic Physics
+Addiction Mechanics
+Enemy Interaction
+Terrain Deformation
+Destructible Environment
+Ragdoll Physics
+No HUD
+Deep Combat System
+Limb-Based Control
+Procedural Generation
+Dual-World Gameplay
+Simulation of Mundane Tasks
+Climbing
+Magic
