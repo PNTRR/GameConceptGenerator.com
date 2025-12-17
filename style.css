@@ -1,0 +1,589 @@
+/* ============================================
+   1. СБРОС И СУПЕР-ДИНАМИЧНЫЙ ФОН
+   ============================================ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    color: #fff;
+    position: relative;
+    min-height: 100vh;
+    background: #0a0a1f;
+}
+
+/* Супер-анимированный фон с частицами и волнами */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300%;
+    height: 300%;
+    background:
+            radial-gradient(circle at 20% 30%, rgba(0, 150, 255, 0.2) 0%, transparent 40%),
+            radial-gradient(circle at 80% 70%, rgba(138, 43, 226, 0.15) 0%, transparent 40%),
+            radial-gradient(circle at 40% 80%, rgba(0, 200, 255, 0.1) 0%, transparent 50%),
+            linear-gradient(45deg, #0a0a1f 0%, #1a1a3a 30%, #2a2a5a 100%);
+    animation: bgMove 20s linear infinite;
+    z-index: -3;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+            radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+            radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    background-size: 60px 60px, 90px 90px;
+    animation: particleMove 40s linear infinite;
+    z-index: -2;
+    opacity: 0.4;
+}
+
+/* Плавающие световые шары */
+body > .floating-orb {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(40px);
+    animation: floatOrb 25s infinite linear;
+    z-index: -1;
+}
+
+body > .floating-orb:nth-child(1) {
+    width: 400px;
+    height: 400px;
+    background: rgba(0, 150, 255, 0.15);
+    top: 10%;
+    left: 5%;
+    animation-delay: 0s;
+}
+
+body > .floating-orb:nth-child(2) {
+    width: 300px;
+    height: 300px;
+    background: rgba(138, 43, 226, 0.1);
+    top: 60%;
+    right: 10%;
+    animation-delay: -8s;
+}
+
+body > .floating-orb:nth-child(3) {
+    width: 500px;
+    height: 500px;
+    background: rgba(0, 200, 255, 0.12);
+    bottom: 10%;
+    left: 20%;
+    animation-delay: -16s;
+}
+
+@keyframes bgMove {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    100% { transform: translate(-100px, -100px) rotate(360deg); }
+}
+
+@keyframes particleMove {
+    0% { background-position: 0 0, 0 0; }
+    100% { background-position: 120px 120px, 180px 180px; }
+}
+
+@keyframes floatOrb {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.7;
+    }
+    25% {
+        transform: translate(50px, -30px) scale(1.1);
+        opacity: 0.9;
+    }
+    50% {
+        transform: translate(-30px, 40px) scale(0.9);
+        opacity: 0.5;
+    }
+    75% {
+        transform: translate(-50px, -20px) scale(1.2);
+        opacity: 0.8;
+    }
+}
+
+/* ============================================
+   2. УМНАЯ НАВИГАЦИЯ БЕЗ JavaScript
+   ============================================ */
+/* Используем CSS-атрибут селекторы для каждой страницы */
+
+/* Для index.html - активна Generator */
+body:has(header a[href="index.html"]) .nav-links a[href="index.html"] {
+    color: #fff;
+    background: linear-gradient(135deg, #3a86ff, #8338ec);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 20px rgba(58, 134, 255, 0.4);
+}
+
+/* Для about.html - активна About */
+body:has(header a[href="about.html"]) .nav-links a[href="about.html"] {
+    color: #fff;
+    background: linear-gradient(135deg, #3a86ff, #8338ec);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 20px rgba(58, 134, 255, 0.4);
+}
+
+/* Для aboutCreator.html - активна About Creator */
+body:has(header a[href="aboutCreator.html"]) .nav-links a[href="aboutCreator.html"] {
+    color: #fff;
+    background: linear-gradient(135deg, #3a86ff, #8338ec);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 20px rgba(58, 134, 255, 0.4);
+}
+
+/* Для patchNote.html - активна Patch */
+body:has(header a[href="patchNote.html"]) .nav-links a[href="patchNote.html"] {
+    color: #fff;
+    background: linear-gradient(135deg, #3a86ff, #8338ec);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 20px rgba(58, 134, 255, 0.4);
+}
+
+/* Для methodology.html - активна Methodology */
+body:has(header a[href="methodology.html"]) .nav-links a[href="methodology.html"] {
+    color: #fff;
+    background: linear-gradient(135deg, #3a86ff, #8338ec);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 20px rgba(58, 134, 255, 0.4);
+}
+
+/* Для ccdi.html - активна CCDI */
+body:has(header a[href="ccdi.html"]) .nav-links a[href="ccdi.html"] {
+    color: #fff;
+    background: linear-gradient(135deg, #3a86ff, #8338ec);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 20px rgba(58, 134, 255, 0.4);
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    backdrop-filter: blur(15px);
+    background: rgba(10, 10, 31, 0.85);
+    border-bottom: 1px solid rgba(58, 134, 255, 0.2);
+    padding: 1rem 0;
+}
+
+.nav {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-main {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #3a86ff;
+    text-decoration: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    background: rgba(58, 134, 255, 0.1);
+}
+
+.nav-main:hover {
+    background: rgba(58, 134, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.nav-links {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.nav-link {
+    color: #a0aec0;
+    text-decoration: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    border: 1px solid transparent;
+}
+
+.nav-link:hover {
+    color: #fff;
+    background: rgba(58, 134, 255, 0.1);
+    border-color: rgba(58, 134, 255, 0.2);
+}
+
+/* ============================================
+   3. ОСНОВНОЙ КОНТЕНТ - КРАСИВО И ПРОСТО
+   ============================================ */
+.main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.title {
+    font-size: 3.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, #3a86ff, #8338ec);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 0 30px rgba(58, 134, 255, 0.3);
+    animation: titleGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+    from {
+        text-shadow: 0 0 20px rgba(58, 134, 255, 0.3);
+    }
+    to {
+        text-shadow: 0 0 40px rgba(131, 56, 236, 0.5);
+    }
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    color: #a0aec0;
+    text-align: center;
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+}
+
+/* ============================================
+   4. ГЕНЕРАТОР - КРАСИВАЯ ВЕРСИЯ
+   ============================================ */
+.generate-btn {
+    display: block;
+    margin: 3rem auto;
+    padding: 1.5rem 4rem;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: white;
+    background: linear-gradient(135deg, #3a86ff, #8338ec);
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(58, 134, 255, 0.3);
+    letter-spacing: 1px;
+}
+
+.generate-btn::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #3a86ff, #8338ec, #ff006e, #8338ec);
+    z-index: -1;
+    border-radius: 17px;
+    filter: blur(10px);
+    opacity: 0;
+    animation: btnGlow 3s infinite;
+}
+
+@keyframes btnGlow {
+    0%, 100% {
+        opacity: 0.3;
+    }
+    50% {
+        opacity: 0.7;
+    }
+}
+
+.generate-btn:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(58, 134, 255, 0.5);
+}
+
+.result {
+    background: rgba(20, 25, 40, 0.7);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2.5rem;
+    margin-top: 3rem;
+    border: 1px solid rgba(58, 134, 255, 0.2);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.result-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.result-label {
+    color: #3a86ff;
+    font-weight: 600;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.result-label::before {
+    content: '✦';
+    color: #8338ec;
+}
+
+.result-value {
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 500;
+    padding: 1rem 1.5rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    border: 1px solid rgba(58, 134, 255, 0.1);
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    animation: valuePulse 2s infinite;
+}
+
+@keyframes valuePulse {
+    0%, 100% {
+        border-color: rgba(58, 134, 255, 0.1);
+    }
+    50% {
+        border-color: rgba(58, 134, 255, 0.3);
+    }
+}
+
+.result-value:hover {
+    background: rgba(0, 0, 0, 0.4);
+    transform: translateX(5px);
+}
+
+/* ============================================
+   5. СТРАНИЦЫ КОНТЕНТА
+   ============================================ */
+.content {
+    background: rgba(20, 25, 40, 0.7);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 3rem;
+    margin: 2rem 0;
+    border: 1px solid rgba(58, 134, 255, 0.2);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+}
+
+.header-container {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(58, 134, 255, 0.1), rgba(131, 56, 236, 0.1));
+    border-radius: 15px;
+    border: 1px solid rgba(58, 134, 255, 0.2);
+}
+
+.creator-title {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    color: #3a86ff;
+}
+
+.second-title {
+    font-size: 2.5rem;
+    color: #8338ec;
+    margin-bottom: 1rem;
+}
+
+.subtitle-creator {
+    font-size: 1.3rem;
+    color: #a0aec0;
+    margin-bottom: 0.5rem;
+}
+
+.text-container {
+    background: rgba(30, 35, 50, 0.5);
+    border-radius: 15px;
+    padding: 2rem;
+    margin: 2rem 0;
+    border-left: 4px solid #3a86ff;
+    transition: all 0.3s ease;
+}
+
+.text-container:hover {
+    transform: translateX(10px);
+    border-left-color: #8338ec;
+    background: rgba(30, 35, 50, 0.7);
+}
+
+/* ============================================
+   6. PATCHNOTE - ИСПРАВЛЕННЫЙ
+   ============================================ */
+.name-patch {
+    color: #3a86ff;
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle-patch {
+    color: #ff006e;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+    text-align: left !important; /* ИСПРАВЛЕНО: теперь слева */
+    padding-left: 0;
+    display: block;
+    width: 100%;
+}
+
+.patch-content {
+    background: rgba(15, 20, 35, 0.5);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    border: 1px solid rgba(58, 134, 255, 0.1);
+}
+
+.patch-content h4 {
+    color: #8338ec;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+/* ============================================
+   7. ВЕРСИЯ В ФУТЕРЕ
+   ============================================ */
+.version-footer {
+    text-align: center;
+    margin-top: 4rem;
+    padding: 2rem;
+    color: #a0aec0;
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ============================================
+   8. АДАПТИВНОСТЬ
+   ============================================ */
+@media (max-width: 768px) {
+    .title {
+        font-size: 2.5rem;
+    }
+
+    .nav {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .nav-link {
+        padding: 0.6rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .generate-btn {
+        width: 90%;
+        padding: 1.2rem;
+        font-size: 1.2rem;
+    }
+
+    .result-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .main {
+        padding: 1rem;
+    }
+
+    .content {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .title {
+        font-size: 2rem;
+    }
+
+    .creator-title {
+        font-size: 2rem;
+    }
+
+    .result-value {
+        font-size: 1.1rem;
+        padding: 0.8rem;
+    }
+}
+
+/* ============================================
+   9. ДОПОЛНИТЕЛЬНЫЕ ЭФФЕКТЫ
+   ============================================ */
+::selection {
+    background: rgba(58, 134, 255, 0.3);
+    color: white;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0a0a1f;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(#3a86ff, #8338ec);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(#8338ec, #ff006e);
+}

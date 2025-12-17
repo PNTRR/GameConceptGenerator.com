@@ -1,0 +1,20 @@
+Open World
+Semi-Open World
+Линейный мир
+Мир-лабиринт
+Single-Screen
+Side-Scrolling
+Isometric
+Процедурно генерируемый мир
+Level-Based
+Box-Level / Playground
+Линзовый мир
+Hub World
+Interconnected
+Hybrid
+Non-Euclidean
+Room-Scale
+Hex/Grid-Based World
+Island Archipelago
+Persistent Online World
+Fully Destructible Environment
